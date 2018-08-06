@@ -1,0 +1,82 @@
+body {
+    background: #000;
+}
+
+#landing-header {
+  z-index: 1;
+  position: relative;
+  text-align: center;
+  padding-top: 40vh;
+}
+
+#landing-header h1 {
+  color: #fff;
+}
+
+.slideshow { 
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 0;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.slideshow li { 
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-size: cover;
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  opacity: 0;
+  z-index: 0;
+  animation: imageAnimation 50s linear infinite; 
+}
+
+.slideshow li:nth-child(1) { 
+  background-image: url(http://files.enjin.com.s3.amazonaws.com/70955/module_gallery/original/1814112.jpg) 
+}
+.slideshow li:nth-child(2) { 
+  background-image: url(http://static4.wikia.nocookie.net/__cb20130216014932/starwars/images/2/27/Felucia-wide.png);
+  animation-delay: 10s; 
+}
+.slideshow li:nth-child(3) { 
+  background-image: url(http://www.scifiideas.com/wp-content/uploads/2013/09/283-130222155409-sci-fi-settings.jpgg);
+  animation-delay: 20s; 
+}
+.slideshow li:nth-child(4) { 
+  background-image: url(https://i.pinimg.com/originals/cd/71/4a/cd714a812f47b6067a119a6a41d5ec3e.jpg);
+  animation-delay: 30s; 
+}
+.slideshow li:nth-child(5) { 
+  background-image: url(https://ae01.alicdn.com/kf/HTB1VjO2SXXXXXaXXVXXq6xXFXXXO/Fantasy-Alien-Planet-with-Earth-and-Moon-View-Rocky-Surface-and-Lake-Sci-Fi-Theme-Galactic.jpg_640x640.jpg);
+  animation-delay: 40s; 
+}
+
+@keyframes imageAnimation { 
+  0% { 
+    opacity: 0; 
+    animation-timing-function: ease-in;
+  }
+  10% {
+    opacity: 1;
+    animation-timing-function: ease-out;
+  }
+  20% {
+    opacity: 1
+  }
+  30% {
+    opacity: 0
+  }
+}
+
+/* Older browser support - .no-cssanimations class added by modernizr */
+.no-cssanimations .slideshow li {
+	opacity: 1;
+}
