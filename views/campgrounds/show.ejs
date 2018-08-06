@@ -12,7 +12,11 @@
         </div>
         <div class="col-md-9">
             <div class="thumbnail">
-                <img class="img-responsive" src="<%= campground.image %>">
+                <% if(campground.picturePath) { %>
+                    <img class="img-responsive" src="/images/<%= campground.picturePath %>">
+                <% } else { %>
+                    <img class="img-responsive" src="<%= campground.image %>">
+                <% } %>
                 <div class="caption-full">
                     <h4 class="pull-right">$<%= campground.price %>/night</h4>
                     <h4><a><%=campground.name%></a></h4>
@@ -28,6 +32,7 @@
                     <% } %>
 
                 </div>
+
             </div>
             <div class="well">
                 <div class="text-right">

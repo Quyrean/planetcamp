@@ -6,6 +6,8 @@ var mongoose = require("mongoose");
 var methodOverride = require("method-override");
 var flash = require("connect-flash");
 
+
+
 var passport    = require("passport"),
     LocalStrategy = require("passport-local"),
     passportLocalMongoose = require("passport-local-mongoose");
@@ -17,7 +19,8 @@ var User       = require("./models/user");
 //requiring routes
 var commentRoutes   = require("./routes/comments"),
     campgroundRoutes = require("./routes/campgrounds"),
-    indexRoutes      = require("./routes/index");
+    indexRoutes      = require("./routes/index"),
+    pictureRoutes   =  require("./routes/pictures");
 
 //setup database
 mongoose.connect("mongodb://localhost/yelp_camp");
@@ -53,10 +56,13 @@ app.use(function(req, res, next){
     next();
 });
 
+
+
 // setup routes
 app.use("/", indexRoutes);
 app.use("/campgrounds", campgroundRoutes);
 app.use("/campgrounds/:id/comments", commentRoutes);
+app.use("/images", pictureRoutes);
 
 
 // == Start server

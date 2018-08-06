@@ -21,7 +21,12 @@
         <% campgrounds.forEach(function(campground){ %>
             <div class="col-md3 col-sm-6"> 
                 <div class="thumbnail">
-                    <img src="<%= campground.image %>">
+                    <% if(campground.picturePath) { %>
+                        <img src="/images/<%= campground.picturePath %>">
+                    <% } else { %>
+                        <img src="<%= campground.image %>">
+                    <% } %>
+                    <!--<img src="<%= campground.image %>">-->
                     <div class="caption">
                         <h4><%= campground.name %></h4>
                     </div>
