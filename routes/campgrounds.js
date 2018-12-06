@@ -125,8 +125,13 @@ router.get("/:id/edit", middleware.checkCampgroundOwnership, function(req, res){
 //UPDATE campground - update DB
 router.put("/:id", middleware.checkCampgroundOwnership, multer(multerConfig).single('photo'), function(req, res){
     //req.body.blog.body = req.sanitize(req.body.blog.body);
-    if(req.file) {console.log("file:" + req.filename);} else { console.log("NOOOOOOO file"); }
-    req.body.campground.picturePath = req.file.filename;    
+    if(req.file) {
+		console.log("file:" + req.filename);
+		req.body.campground.picturePath = req.file.filename;    
+	} else { 
+		console.log("NOOOOOOO file"); 
+	}
+
     var id = req.params.id;
     Campground.findByIdAndUpdate(id, req.body.campground, function(err, updatedBlog){
         if(err || !updatedBlog) {
