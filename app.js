@@ -27,7 +27,8 @@ var commentRoutes   = require("./routes/comments"),
 
 //mongodb://<dbuser>:<dbpassword>@ds127954.mlab.com:27954/yelpcamp
 //mongodb://yelpcamp:yelpcamp1@ds127954.mlab.com:27954/yelpcamp
-mongoose.connect("mongodb://yelpcamp:yelpcamp1@ds127954.mlab.com:27954/yelpcamp");
+//mongoose.connect("mongodb://yelpcamp:yelpcamp1@ds127954.mlab.com:27954/yelpcamp");
+mongoose.connect(process.env.DATABASEURL);
 
 
 //seedDB();  //seed the db
