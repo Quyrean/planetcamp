@@ -75,7 +75,11 @@ router.post("/", middleware.isLoggedIn, multer(multerConfig).single('photo'), fu
         username: req.user.username
     };
     req.body.campground.author = author;
-    req.body.campground.picturePath = req.file.filename;
+    if(req.file) {
+		req.body.campground.picturePath = req.file.filename;
+	} else {
+		console.log("do something? no filename");
+	}
     // var newCampground = {name: name, price: price, image: image,
     //     description: desc, author: author,
     //     picturePath: req.file.filename
