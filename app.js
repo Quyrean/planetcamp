@@ -23,7 +23,12 @@ var commentRoutes   = require("./routes/comments"),
     pictureRoutes   =  require("./routes/pictures");
 
 //setup database
-mongoose.connect("mongodb://localhost/yelp_camp");
+//mongoose.connect("mongodb://localhost/yelp_camp");
+
+//mongodb://<dbuser>:<dbpassword>@ds127954.mlab.com:27954/yelpcamp
+//mongodb://yelpcamp:yelpcamp1@ds127954.mlab.com:27954/yelpcamp
+mongoose.connect("mongodb://yelpcamp:yelpcamp1@ds127954.mlab.com:27954/yelpcamp");
+
 
 //seedDB();  //seed the db
 
